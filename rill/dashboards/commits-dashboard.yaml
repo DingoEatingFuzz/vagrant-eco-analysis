@@ -1,0 +1,79 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI but then modified by a human.
+
+type: metrics_view
+title: Metrics for Model Table
+model: commits
+timeseries: date
+dimensions:
+  - label: Owner
+    column: owner
+    description: ""
+  - label: Repo
+    column: repo
+    description: ""
+  - label: Author
+    column: author
+    description: ""
+  - label: Authoremail
+    column: authorEmail
+    description: ""
+  - label: Committer
+    column: committer
+    description: ""
+  - label: Committeremail
+    column: committerEmail
+    description: ""
+  - label: Message
+    column: message
+    description: ""
+measures:
+  - name: total_commits
+    label: Total Commits
+    expression: COUNT(*)
+    description: Total number of commits in the table
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_additions
+    label: Average Additions
+    expression: AVG(additions)
+    description: Average number of additions made in each entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_deletions
+    label: Average Deletions
+    expression: AVG(deletions)
+    description: Average number of deletions made in each entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_additions
+    label: Maximum Additions
+    expression: MAX(additions)
+    description: Maximum number of additions made in a single entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_deletions
+    label: Maximum Deletions
+    expression: MAX(deletions)
+    description: Maximum number of deletions made in a single entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_additions
+    label: Total Additions
+    expression: SUM(additions)
+    description: Total number of additions across all entries
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: total_deletions
+    label: Total Deletions
+    expression: SUM(deletions)
+    description: Total number of deletions across all entries
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: average_files_per_entry
+    label: Average Files per Entry
+    expression: AVG(ARRAY_LENGTH(files))
+    description: Average number of files per entry
+    format_preset: humanize
+    valid_percent_of_total: false

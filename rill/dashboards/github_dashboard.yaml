@@ -1,0 +1,85 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI and modified a lot a lot by a human.
+
+type: metrics_view
+title: Metrics for GitHub Data Analysis
+model: github
+timeseries: createdAt
+dimensions:
+  - label: Type
+    column: type
+    description: ""
+  - label: Owner
+    column: owner
+    description: ""
+  - label: Repo
+    column: repo
+    description: ""
+  - label: Author
+    column: author
+    description: ""
+  - label: Closed
+    column: closed
+    description: ""
+  - label: Locked
+    column: locked
+    description: ""
+  - label: '# Participants'
+    expression: ARRAY_LENGTH(participants)
+    description: ""
+  - label: '# Comments'
+    column: commentsCount
+    description: ""
+  - label: '# Reactions'
+    column: reactionsCount
+    description: ""
+measures:
+  - name: total_entries
+    label: Total Entries
+    expression: COUNT(*)
+    description: Total number of entries in the GitHub table.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_comments_count
+    label: Average Comments Count
+    expression: AVG(commentsCount)
+    description: Average number of comments on GitHub entries.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_reactions_count
+    label: Total Reactions Count
+    expression: SUM(reactionsCount)
+    description: Total number of reactions on GitHub entries.
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: average_participants_count
+    label: Average Participants Count
+    expression: AVG(ARRAY_LENGTH(participants))
+    description: Average number of participants in GitHub discussions.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_reactions
+    label: Average Reactions
+    expression: AVG(reactionsCount)
+    description: Average number of reactions.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_opened_issues
+    label: Total Issues
+    expression: SUM(CASE WHEN type = 'issue' THEN 1 ELSE 0 END)
+    description: Total number of issues in the GitHub entries.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_opened_pulls
+    label: Total Pull Requests
+    expression: SUM(CASE WHEN type = 'pull' THEN 1 ELSE 0 END)
+    description: Total number of pull requests in the GitHub entries.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_locked_entries
+    label: Total Locked Entries
+    expression: SUM(CASE WHEN locked = true THEN 1 ELSE 0 END)
+    description: Total number of locked entries in the GitHub table.
+    format_preset: humanize
+    valid_percent_of_total: false

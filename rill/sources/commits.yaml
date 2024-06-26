@@ -1,0 +1,4 @@
+type: "source"
+connector: "duckdb"
+sql: "select * from commits"
+db: "data/vagrant-eco.db"
