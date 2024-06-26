@@ -1,0 +1,6 @@
+# Intermediate data files
+all-commit*
+github-all*
+
+# Duck database
+vagrant-eco.db
