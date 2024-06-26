@@ -3,4 +3,4 @@ all-commit*
 github-all*
 
 # Duck database
-vagrant-eco.db
+/vagrant-eco.db
