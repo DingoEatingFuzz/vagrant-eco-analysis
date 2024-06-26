@@ -3,7 +3,7 @@
 # This file was generated using AI and modified a lot a lot by a human.
 
 type: metrics_view
-title: Metrics for GitHub Data Analysis
+title: GitHub issues and pull requests
 model: github
 timeseries: createdAt
 dimensions:

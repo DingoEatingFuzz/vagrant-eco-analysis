@@ -3,7 +3,7 @@
 # This file was generated using AI but then modified by a human.
 
 type: metrics_view
-title: Metrics for Model Table
+title: Git commits across all projects
 model: commits
 timeseries: date
 dimensions:
