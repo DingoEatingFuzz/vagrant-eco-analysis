@@ -1,3 +1,6 @@
 compiler: rillv1
 
 title: "Vagrant Ecosystem"
+
+features:
+  - cloudDataViewer: true
